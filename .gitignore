@@ -1,0 +1,11 @@
+# Ignore dependencies and build output in every experiment
+**/node_modules/
+**/dist/
+**/.DS_Store
+**/.vscode/
+**/.idea/
+
+# Ignore lab instructions everywhere, but keep every README.md
+*.md
+!README.md
+!**/README.md
