@@ -8,3 +8,10 @@ export const selectAllPlatforms = createSelector(
 );
 
 export const selectPlatformById = (state, id) => state.platforms.entities[id];
+
+// View-model shape for <select> elements. Recomputed only when platforms
+// change; identity-stable across renders so React.memo'd children skip work.
+export const selectPlatformOptions = createSelector(
+  [selectAllPlatforms],
+  (platforms) => platforms.map((p) => ({ value: p.id, label: p.name }))
+);

@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectStats } from '../features/posts/postsSelectors';
+import RenderCounter from './RenderCounter';
 
 function StatsBar() {
   const { totalPosts, totalPlatforms, totalLikes, mostActivePlatformName } =
@@ -23,6 +24,7 @@ function StatsBar() {
         <div className="stats-value">{mostActivePlatformName}</div>
         <div className="stats-label">Most active</div>
       </div>
+      <RenderCounter label="stats" position="corner" />
     </section>
   );
 }

@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllPlatforms } from './platformsSelectors';
 import { addPlatform, updatePlatform, deletePlatform } from './platformsSlice';
+import PlatformItem from './PlatformItem';
+import RenderCounter from '../../components/RenderCounter';
 
 function PlatformsList() {
   const platforms = useSelector(selectAllPlatforms);
@@ -10,40 +12,52 @@ function PlatformsList() {
   const [editingId, setEditingId] = useState(null);
   const [editingName, setEditingName] = useState('');
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    if (!name.trim()) return;
-    dispatch(addPlatform(name));
-    setName('');
-  };
+  // Stable handler identities so memoized PlatformItem can skip work.
+  const handleAdd = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (!name.trim()) return;
+      dispatch(addPlatform(name));
+      setName('');
+    },
+    [dispatch, name]
+  );
 
-  const startEdit = (platform) => {
+  const startEdit = useCallback((platform) => {
     setEditingId(platform.id);
     setEditingName(platform.name);
-  };
+  }, []);
 
-  const saveEdit = () => {
+  const saveEdit = useCallback(() => {
     if (!editingName.trim() || !editingId) return;
     dispatch(updatePlatform({ id: editingId, name: editingName }));
     setEditingId(null);
     setEditingName('');
-  };
+  }, [dispatch, editingId, editingName]);
 
-  const cancelEdit = () => {
+  const cancelEdit = useCallback(() => {
     setEditingId(null);
     setEditingName('');
-  };
+  }, []);
 
-  const handleDelete = (platform) => {
-    const confirmed = window.confirm(
-      `Delete platform "${platform.name}"? Posts referencing it will keep their platformId.`
-    );
-    if (confirmed) dispatch(deletePlatform(platform.id));
-  };
+  const changeEditingName = useCallback((value) => setEditingName(value), []);
+
+  const handleDelete = useCallback(
+    (platform) => {
+      const confirmed = window.confirm(
+        `Delete platform "${platform.name}"? Posts referencing it will keep their platformId.`
+      );
+      if (confirmed) dispatch(deletePlatform(platform.id));
+    },
+    [dispatch]
+  );
 
   return (
     <section className="card">
-      <h2 className="card-title">Platforms</h2>
+      <div className="card-title-row">
+        <h2 className="card-title">Platforms</h2>
+        <RenderCounter label="platforms-list" position="inline" />
+      </div>
 
       <form className="form-row" onSubmit={handleAdd}>
         <input
@@ -64,49 +78,17 @@ function PlatformsList() {
       ) : (
         <ul className="card-list">
           {platforms.map((platform) => (
-            <li key={platform.id} className="card-item">
-              {editingId === platform.id ? (
-                <>
-                  <input
-                    className="input"
-                    type="text"
-                    value={editingName}
-                    onChange={(e) => setEditingName(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') saveEdit();
-                      if (e.key === 'Escape') cancelEdit();
-                    }}
-                    autoFocus
-                  />
-                  <div className="card-actions">
-                    <button className="btn btn-primary" onClick={saveEdit}>
-                      Save
-                    </button>
-                    <button className="btn btn-ghost" onClick={cancelEdit}>
-                      Cancel
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <span className="badge">{platform.name}</span>
-                  <div className="card-actions">
-                    <button
-                      className="btn btn-ghost"
-                      onClick={() => startEdit(platform)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => handleDelete(platform)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </>
-              )}
-            </li>
+            <PlatformItem
+              key={platform.id}
+              platform={platform}
+              isEditing={editingId === platform.id}
+              editingName={editingName}
+              onChangeEditingName={changeEditingName}
+              onStartEdit={startEdit}
+              onSaveEdit={saveEdit}
+              onCancelEdit={cancelEdit}
+              onDelete={handleDelete}
+            />
           ))}
         </ul>
       )}

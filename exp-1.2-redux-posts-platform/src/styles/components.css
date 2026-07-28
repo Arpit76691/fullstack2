@@ -265,6 +265,56 @@
   font-family: inherit;
 }
 
+/* Card title row (used by sections that show a render counter next to title) */
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.card-title-row .card-title {
+  margin-bottom: 0;
+}
+
+.card-subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-left: auto;
+}
+
+/* Post filter/sort controls */
+.post-controls {
+  align-items: center;
+}
+
+.post-controls .input {
+  flex: 1;
+}
+
+/* Badge wrapper that hosts the inline render counter */
+.badge-with-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Dev-only render counter */
+.render-counter {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  border: 1px dashed #d1d5db;
+  border-radius: 999px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.render-counter--corner {
+  margin-left: auto;
+}
+
 /* Empty state */
 .empty-state {
   text-align: center;
