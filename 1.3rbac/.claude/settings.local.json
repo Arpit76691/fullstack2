@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(rm -f src/App.css src/index.css src/App.jsx src/main.jsx)",
+      "Bash(rm -rf src/assets)",
+      "Bash(mkdir -p src/components/Navbar src/components/ProtectedRoute src/components/RoleRoute src/components/PostForm src/components/PostTable src/components/Modal src/pages/Login src/pages/Dashboard src/pages/Posts src/pages/Users src/pages/TokenInspector src/pages/Unauthorized src/pages/NotFound src/context src/data src/hooks src/utils src/styles)",
+      "Bash(npm run *)"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+// Dummy post database - 25 realistic sample posts
+const posts = [
+  { id: 1, title: "Getting Started with React", description: "A beginner's guide to building interfaces with React.", category: "Technology", author: "admin1", createdAt: "2026-01-04T10:00:00Z" },
+  { id: 2, title: "Understanding JWT Authentication", description: "How JSON Web Tokens work in modern web apps.", category: "Security", author: "editor1", createdAt: "2026-01-06T12:30:00Z" },
+  { id: 3, title: "CSS Grid vs Flexbox", description: "Comparing layout techniques and when to use each.", category: "Design", author: "editor2", createdAt: "2026-01-09T09:15:00Z" },
+  { id: 4, title: "Building a REST API", description: "A practical introduction to RESTful services.", category: "Backend", author: "admin2", createdAt: "2026-01-12T14:20:00Z" },
+  { id: 5, title: "Version Control with Git", description: "Essential Git commands for everyday development.", category: "Tools", author: "editor3", createdAt: "2026-01-14T08:45:00Z" },
+  { id: 6, title: "Introduction to TypeScript", description: "Adding static typing to your JavaScript projects.", category: "Technology", author: "editor4", createdAt: "2026-01-18T16:00:00Z" },
+  { id: 7, title: "Database Normalization", description: "Why and how to normalize your database schema.", category: "Database", author: "admin3", createdAt: "2026-01-21T11:10:00Z" },
+  { id: 8, title: "Responsive Web Design", description: "Designing websites that work on every screen size.", category: "Design", author: "editor5", createdAt: "2026-01-23T13:00:00Z" },
+  { id: 9, title: "Async JavaScript Patterns", description: "Promises, async/await, and callbacks explained.", category: "Technology", author: "editor6", createdAt: "2026-01-26T10:30:00Z" },
+  { id: 10, title: "Deploying to Vercel", description: "A quick guide to deploying a Vite app on Vercel.", category: "DevOps", author: "admin4", createdAt: "2026-01-28T15:45:00Z" },
+  { id: 11, title: "Writing Clean Code", description: "Principles for writing maintainable software.", category: "Best Practices", author: "editor7", createdAt: "2026-02-01T09:00:00Z" },
+  { id: 12, title: "Understanding OAuth 2.0", description: "How OAuth 2.0 authorization works.", category: "Security", author: "editor8", createdAt: "2026-02-04T12:00:00Z" },
+  { id: 13, title: "React Hooks Deep Dive", description: "Mastering useState, useEffect, and custom hooks.", category: "Technology", author: "editor9", createdAt: "2026-02-07T14:10:00Z" },
+  { id: 14, title: "SQL vs NoSQL", description: "Choosing the right database for your project.", category: "Database", author: "admin5", createdAt: "2026-02-10T11:25:00Z" },
+  { id: 15, title: "Web Accessibility Basics", description: "Making the web usable for everyone.", category: "Design", author: "editor10", createdAt: "2026-02-12T16:30:00Z" },
+  { id: 16, title: "Docker for Developers", description: "Containerize your apps with Docker.", category: "DevOps", author: "editor1", createdAt: "2026-02-15T10:00:00Z" },
+  { id: 17, title: "State Management in React", description: "Context, Redux, and Zustand compared.", category: "Technology", author: "editor2", createdAt: "2026-02-18T13:45:00Z" },
+  { id: 18, title: "Unit Testing with Jest", description: "Writing tests that catch real bugs.", category: "Testing", author: "editor3", createdAt: "2026-02-21T15:15:00Z" },
+  { id: 19, title: "API Security Best Practices", description: "Common API vulnerabilities and how to avoid them.", category: "Security", author: "editor4", createdAt: "2026-02-24T09:50:00Z" },
+  { id: 20, title: "Server-Side Rendering", description: "SSR with React and Next.js explained.", category: "Technology", author: "editor5", createdAt: "2026-02-27T12:00:00Z" },
+  { id: 21, title: "MVC Architecture Pattern", description: "Understanding the Model-View-Controller pattern.", category: "Best Practices", author: "editor6", createdAt: "2026-03-02T10:00:00Z" },
+  { id: 22, title: "Tailwind CSS Tips", description: "Useful utility classes for faster UI work.", category: "Design", author: "editor7", createdAt: "2026-03-05T14:30:00Z" },
+  { id: 23, title: "Continuous Integration", description: "Setting up CI pipelines for your projects.", category: "DevOps", author: "editor8", createdAt: "2026-03-08T11:00:00Z" },
+  { id: 24, title: "Web Performance Optimization", description: "Making your site faster with simple techniques.", category: "Performance", author: "editor9", createdAt: "2026-03-11T16:20:00Z" },
+  { id: 25, title: "Microservices vs Monolith", description: "Trade-offs between architectural styles.", category: "Backend", author: "editor10", createdAt: "2026-03-14T13:00:00Z" },
+];
+
+export default posts;
