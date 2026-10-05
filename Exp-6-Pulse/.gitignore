@@ -1,0 +1,18 @@
+# Java/Maven
+backend/target/
+backend/**/*.class
+
+# Node/Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# OS/IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+Thumbs.db
